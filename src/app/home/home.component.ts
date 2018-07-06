@@ -1,5 +1,6 @@
 // this is a by default statement
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { BlogService } from '../blog.service';
 
 // decorator
 @Component({
@@ -9,54 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 
 // a simple class
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
-  //declare a dummy blog variable here
-  public allBlogs = [
-    {
-      "blogId": "1",
-      "lastModified": "2018-06-20T12:20:47.854Z",
-      "created": "2018-06-20T12:20:47.854Z",
-      "tags": [],
-      "author": "Admin",
-      "category": "Comedy",
-      "isPublished": true,
-      "views": 1000,
-      "bodyHtml": "this is blog body",
-      "description": "this is blog 1 description",
-      "title": "This is blog 1"
-    },
-    {
-      "blogId": "2",
-      "lastModified": "2018-06-20T12:20:47.854Z",
-      "created": "2018-06-20T12:20:47.854Z",
-      "tags": [],
-      "author": "Admin",
-      "category": "Comedy",
-      "isPublished": true,
-      "views": 1000,
-      "bodyHtml": "<h1>this is a big text </h1> <p>Small text </p>",
-      "description": "this is the description of example blog and is edited.",
-      "title": "This is an example blog"
-    },
-    {
-      "blogId": "3",
-      "lastModified": "2018-06-20T12:20:47.854Z",
-      "created": "2018-06-20T12:20:47.854Z",
-      "tags": [],
-      "author": "Admin",
-      "category": "Comedy",
-      "isPublished": true,
-      "views": 1000,
-      "bodyHtml": "this is the blog body. this is the blog body. this is the blog body. this is the blog body.",
-      "description": "this is the third blog description",
-      "title": "This is blog 3"
-    }
-  ]
+  public allBlogs;
 
-  constructor() { }
+  constructor(public blogService:BlogService) {
+    console.log("Home Component constructor called");
+   }
 
   ngOnInit() {
+    console.log("Home Component onInit called")
+    this.allBlogs = this.blogService.getAllBlogs();
+    console.log(this.allBlogs);
+  }
+  ngOnDestroy() {
+    console.log("Home Component destroyed")
   }
 
 }

@@ -4,6 +4,7 @@
     
   </div>
   <div class="row" style="text-align: center">
+    <!-- iterative div starts here -->
     <div *ngFor="let blog of allBlogs" class="col-md-4">
 
       <div class="card text-center">
@@ -12,14 +13,14 @@
           <p>{{blog.description}}</p>
         </div>
         <div class="card-footer text-muted">Posted on {{blog.created | date}}<br/> by {{blog.author}}
-          <br/><br/><a [routerLink]="['/blog,blog.blogId']" class="btn btn-primary">Read</a>
+          <br/><br/><a [routerLink]="['/blog',blog.blogId]" class="btn btn-primary">Read</a>
 
         </div>
       </div>
 
       <br />
-
     </div>
+    <!-- end iterative div -->
   </div>
 
 </div>
