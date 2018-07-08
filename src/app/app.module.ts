@@ -14,6 +14,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 // import statement for service
 import { BlogService } from './blog.service';
+import { BlogHttpService } from './blog-http.service';
+
+// import statements for API 
+import { HttpClientModule } from '@angular/common/http';
+imports: [
+  BrowserModule,
+  HttpClientModule,
+  
+  ]
 
 //decorators
 @NgModule({
@@ -39,7 +48,7 @@ import { BlogService } from './blog.service';
       {path:'**',component:NotFoundComponent}
     ])
   ],
-  providers: [BlogService],
+  providers: [BlogService,BlogHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

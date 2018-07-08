@@ -56,7 +56,7 @@ export class BlogService {
 
   // method to return all the blogs
   public getAllBlogs(): any {
-    return this.getAllBlogs;
+    return this.allBlogs;
   }
 
   // method to get a particular blog
@@ -72,5 +72,6 @@ export class BlogService {
     }
 
     console.log(this.currentBlog);
+    return this.currentBlog;
   }// end get blog information function
 }

@@ -3,7 +3,7 @@
     <h1 class="text-center col-md-12 p-5" style="font-size: 22px">All Blogs</h1>
     
   </div>
-  <div class="row" style="text-align: center">
+  <div class="row" style="text-align: center" *ngIf="allBlogs.length>0">
     <!-- iterative div starts here -->
     <div *ngFor="let blog of allBlogs" class="col-md-4">
 
