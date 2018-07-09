@@ -18,11 +18,11 @@ import { BlogHttpService } from './blog-http.service';
 
 // import statements for API 
 import { HttpClientModule } from '@angular/common/http';
-imports: [
+/*imports: [
   BrowserModule,
   HttpClientModule,
   
-  ]
+  ]*/
 
 //decorators
 @NgModule({
@@ -46,7 +46,8 @@ imports: [
       {path:'create',component:BlogCreateComponent},
       {path:'edit/:blogId',component:BlogEditComponent},
       {path:'**',component:NotFoundComponent}
-    ])
+    ]),
+    HttpClientModule
   ],
   providers: [BlogService,BlogHttpService],
   bootstrap: [AppComponent]
